@@ -8,6 +8,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var request = require('request');
 
 var mongo = require('mongodb');
 var databaseUrl = "localhost/mydb";
@@ -15,8 +16,6 @@ var db = require('monk')('localhost/mydb');
 var users = db.get('users');
 var OAuth = require('OAuth');
 var ObjectId=require('mongodb').ObjectID
-
-users.insert({ name: 'Tobi', bigdata: {} });
 
 var app = express();
 
@@ -40,7 +39,14 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', function(req, res){
+  var user_id = ObjectId("53083629d90708370e000001");
+  users.findById(user_id, function(err, doc){
+    
+    res.send(doc.strava_activities);
+
+  });
+});
 
 app.get('/users', function(req, res){
   users.find(req.query).on('success', function(doc) {
@@ -48,25 +54,14 @@ app.get('/users', function(req, res){
   });
 });
 
-app.get('/strava', function(req, res){
-  var id = 919;
-  var secret = '2cdd3ee9ab90544f879882c30303ef08b63ec774';
-  var OAuth2 = OAuth.OAuth2;    
+app.get('/stravaPoll', function(req, res){
+  var user_id = ObjectId("53083629d90708370e000001");
+  users.findOne({'_id':user_id});
+  // if no token, authenticate user
+  // if token, get data and return
 
-  // function(clientId, clientSecret, baseSite, authorizePath, accessTokenPath, customHeaders)
-  var oauth2 = new OAuth2(id,
-    secret, 
-    'https://www.strava.com/',
-    'oauth/authorize',
-    'oauth/token',
-    null);
-  oauth2.getOAuthAccessToken(
-    '',
-    {'grant_type':'client_credentials'},
-    function (e, access_token, refresh_token, results){
-    console.log('bearer: ',access_token);
-    done();
-  });
+
+
 });
 
 app.get('/fitbit', function(req, res){
@@ -90,17 +85,59 @@ app.get('/fitbit', function(req, res){
 });
 
 app.get('/stravaCallback', function(req,res){
-  console.log("callback was hit with");
   //var user_id = req.session.user_id;
   //var oauth_code = req.code;
-  console.log('code = ' + req.query.q);
-  var secret_code = req.query.code;
-  users.findAndModify({'_id':ObjectId("53083629d90708370e000001")}, {$set:{'code':secret_code}});
-  users.findOne({'_id':ObjectId("53083629d90708370e000001")}).on('success', function (doc) {
-      console.log(doc.code);
-  });
+  //var user_id = req.session.user_id
+  // fixme get user id from session?
+  var user_id = ObjectId("53083629d90708370e000001");
+  var strava_client_id = '919';
+  var strava_client_secret = '2cdd3ee9ab90544f879882c30303ef08b63ec774';
+  var strava_secret_code = req.query.code;
+
+  users.findAndModify({'_id':user_id}, {$set:{'code':strava_secret_code}});
+
+  // function(clientId, clientSecret, baseSite, authorizePath, accessTokenPath, customHeaders)
+  var OAuth2 = OAuth.OAuth2;
+  var oauth2 = new OAuth2(strava_client_id, strava_client_secret, 'https://www.strava.com/',
+        'oauth/authorize',
+        'oauth/token',
+    null);
+
+  oauth2.getOAuthAccessToken(strava_secret_code, {'grant_type':'client_credentials'},
+    function (e, access_token, refresh_token, results){
+      console.log('bearer: ',access_token);
+      users.findAndModify({'_id':user_id}, {$set:{'strava_access_token':access_token, 'strava_refresh_token':refresh_token}});
+
+      var request = require('request');
+
+      var options = {
+        url: 'https://www.strava.com/api/v3/activities',
+        headers: {
+            'Authorization': 'Bearer ' + access_token,
+        },
+        method: 'get'
+      };
+
+      function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          users.findAndModify({'_id':user_id}, {$set:{'strava_activities':body}});
+          res.writeHead(302, {
+            'Location': '/'
+          });
+          res.end();
+        } else {
+          res.send([]);
+        }
+      }
+
+      request(options, callback);
+
+    })
+
 
 });
+
+
 
 http.createServer(app).listen(app.get('port'), '0.0.0.0', function(){
   console.log('Express server listening on port ' + app.get('port'));
