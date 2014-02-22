@@ -37,3 +37,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.narrow-top-margin {
+	margin-top:0px;
+}
