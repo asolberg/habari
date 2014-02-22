@@ -90,8 +90,9 @@ $(function () {
                 text: 'Distance (miles)',
             }
         },
+        credits: { enabled: false, },
         legend: {
-            enabled: false,
+            enabled: true,
         },
         tooltip: {
             formatter: function() {
@@ -103,9 +104,22 @@ $(function () {
             }
         },
         labels: { },
-        series: [{
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black, 0 0 3px black'
+                    }
+                }
+            }
+        },
+        series: [
+        {
             type: 'column',
-            name: 'Jane',
+            name: 'Nike+',
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
@@ -113,27 +127,59 @@ $(function () {
                     calories: 122,
                 },
                 {
-                    x: Date.UTC(2014, 2, 3),
+                    x: Date.UTC(2014, 2, 2),
                     y: 10,
                     calories: 140,
                 },
                 {
-                    x: Date.UTC(2014, 2, 7),
+                    x: Date.UTC(2014, 2, 3),
                     y: 11,
                     calories: 166,
                 },
                 {
-                    x: Date.UTC(2014, 2, 15),
+                    x: Date.UTC(2014, 2, 4),
                     y: 9,
                     calories: 134,
                 },
                 {
-                    x: Date.UTC(2014, 2, 19),
+                    x: Date.UTC(2014, 2, 5),
                     y: 15,
                     calories: 160,
                 }
             ]
         },
+        {
+            type: 'column',
+            name: 'MapMyFitness',
+            data: [
+                { 
+                    x: Date.UTC(2014, 2, 1),
+                    y: 4,
+                    calories: 122,
+                },
+                {
+                    x: Date.UTC(2014, 2, 2),
+                    y: 5.5,
+                    calories: 140,
+                },
+                {
+                    x: Date.UTC(2014, 2, 3),
+                    y: 4.8,
+                    calories: 166,
+                },
+                {
+                    x: Date.UTC(2014, 2, 4),
+                    y: 3.4,
+                    calories: 134,
+                },
+                {
+                    x: Date.UTC(2014, 2, 5),
+                    y: 8,
+                    calories: 160,
+                }
+            ]
+        },
+
         ]
     });
 
@@ -157,8 +203,9 @@ $(function () {
             }
         },
         legend: {
-            enabled: false,
+            enabled: true,
         },
+        credits: { enabled: false, },
         tooltip: {
             formatter: function() {
                 var s;
@@ -169,9 +216,23 @@ $(function () {
             }
         },
         labels: { },
-        series: [{
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black, 0 0 3px black'
+                    }
+                }
+            }
+        },
+
+        series: [
+        {
             type: 'column',
-            name: 'Jane',
+            name: 'Nike+',
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
@@ -179,27 +240,61 @@ $(function () {
                     y: 122,
                 },
                 {
-                    x: Date.UTC(2014, 2, 3),
+                    x: Date.UTC(2014, 2, 2),
                     distance: 10,
                     y: 140,
                 },
                 {
-                    x: Date.UTC(2014, 2, 7),
+                    x: Date.UTC(2014, 2, 3),
                     distance: 11,
                     y: 166,
                 },
                 {
-                    x: Date.UTC(2014, 2, 15),
+                    x: Date.UTC(2014, 2, 4),
                     distance: 9,
                     y: 134,
                 },
                 {
-                    x: Date.UTC(2014, 2, 19),
+                    x: Date.UTC(2014, 2, 5),
                     distance: 15,
                     y: 160,
                 }
             ]
         },
+        {
+            type: 'column',
+            name: 'MapMyFitness',
+            data: [
+                { 
+                    x: Date.UTC(2014, 2, 1),
+                    distance: 8,
+                    y: 102,
+                },
+                {
+                    x: Date.UTC(2014, 2, 2),
+                    distance: 10,
+                    y: 110,
+                },
+                {
+                    x: Date.UTC(2014, 2, 3),
+                    distance: 11,
+                    y: 99,
+                },
+                {
+                    x: Date.UTC(2014, 2, 4),
+                    distance: 9,
+                    y: 122,
+                },
+                {
+                    x: Date.UTC(2014, 2, 5),
+                    distance: 15,
+                    y: 80,
+                }
+            ]
+        },
+
+
+
         ]
     });
 });
