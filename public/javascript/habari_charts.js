@@ -1,3 +1,38 @@
+
+
+var FitBit = {
+    /**
+     * jsonRespStr - response of the Get-Activities API
+     */
+    createDistanceChartData: function(dateObj, jsonRespStr) {
+        var obj = JSON.parse(jsonRespStr);
+        obj = obj.activities;
+        var result = [];
+        for (var i = 0; i < obj.length; i++) {
+            result.push({
+                x: dateObj,
+                y: obj[i].distance,
+                calories: obj[i].calories,
+            });
+        }
+        return result;
+    },
+    createCaloriesChartData: function(dateObj, jsonRespStr) {
+        var obj = JSON.parse(jsonRespStr);
+        obj = obj.activities;
+        var result = [];
+        for (var i = 0; i < obj.length; i++) {
+            result.push({
+                x: dateObj,
+                y: obj[i].calories,
+                distance: obj[i].distance,
+            });
+        }
+        return result;
+    },
+};
+
+
 var NikePlus = {
     /**
      * jsonRespStr - response of list activities /me/sport/activities
