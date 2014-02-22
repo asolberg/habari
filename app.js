@@ -9,6 +9,8 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var request = require('request');
+var ejs = require('ejs');
+
 
 var mongo = require('mongodb');
 var databaseUrl = "localhost/mydb";
@@ -22,7 +24,7 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -42,8 +44,9 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res){
   var user_id = ObjectId("53083629d90708370e000001");
   users.findById(user_id, function(err, doc){
-    
-    res.send(doc.strava_activities);
+    //html = new ejs({url: '/template.ejs'}).render(data)
+    res.render('overview', {test_var: 'HELLO WORLD'});
+    //res.send(doc.strava_activities);
 
   });
 });
