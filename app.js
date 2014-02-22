@@ -14,6 +14,7 @@ var databaseUrl = "localhost/mydb";
 var db = require('monk')('localhost/mydb');
 var users = db.get('users');
 var OAuth = require('OAuth');
+var ObjectId=require('mongodb').ObjectID
 
 users.insert({ name: 'Tobi', bigdata: {} });
 
@@ -30,6 +31,9 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
 
 // development only
 if ('development' == app.get('env')) {
@@ -85,12 +89,19 @@ app.get('/fitbit', function(req, res){
   // function(url, oauth_token, oauth_token_secret, callback) {
 });
 
-app.get('/callback', function(req,res){
+app.get('/stravaCallback', function(req,res){
   console.log("callback was hit with");
-  console.log(req.params);
-  console.log(req.query);
+  //var user_id = req.session.user_id;
+  //var oauth_code = req.code;
+  console.log('code = ' + req.query.q);
+  var secret_code = req.query.code;
+  users.findAndModify({'_id':ObjectId("53083629d90708370e000001")}, {$set:{'code':secret_code}});
+  users.findOne({'_id':ObjectId("53083629d90708370e000001")}).on('success', function (doc) {
+      console.log(doc.code);
+  });
+
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), '0.0.0.0', function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
