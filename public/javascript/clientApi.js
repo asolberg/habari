@@ -6,22 +6,18 @@
  * Created by Arian on 2/21/14.
  */
 
-API_ENDPOINT = 'http://localhost:8080/getApiData'
+API_ENDPOINT = 'http://localhost:8080/stravaPoll'
 
 function ClientApiWrapper(client_id){
-    this.client_id = client.id;
 }
 
-ClientApiWrapper.prototype.getApiData = function (service, callback){
+ClientApiWrapper.prototype.getStravaApiData = function (callback){
 
-    payload = {
-        'service':service
-    }
+
 
     $.ajax({
         url: API_ENDPOINT,
-        method: 'get',
-        data: payload
+        method: 'get'
     }).done(function (response) {
             callback(response)
         }).fail(function () {
@@ -29,10 +25,21 @@ ClientApiWrapper.prototype.getApiData = function (service, callback){
         });
 }
 
-var clientApiWrapper = new ClientApiWrapper('129');
+var clientApiWrapper = new ClientApiWrapper();
 
-var strava_data = clientApiWrapper.getApiData('strava');
+//var strava_data = clientApiWrapper.getStravaApiData();
+
+ClientApiWrapper.prototype.startStravaPolling = function (){
+  var that = this;
+  setInterval(function(){that.getStravaApiData(updateData)},1000);
+}
 
 function updateData(resp){
-    alert('updating data');
+  activityData.strava_data = resp;
+}
+
+if (activityData.strava_data){
+  clientApiWrapper.startStravaPolling();
+} else {
+  alert('no global variable');
 }

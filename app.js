@@ -60,11 +60,32 @@ app.get('/users', function(req, res){
 
 app.get('/stravaPoll', function(req, res){
   var user_id = ObjectId("53083629d90708370e000001");
-  users.findOne({'_id':user_id});
-  // if no token, authenticate user
-  // if token, get data and return
+  users.findById(user_id, function(err, doc){
+    //html = new ejs({url: '/template.ejs'}).render(data)
+    var strava_access_token = doc.strava_access_token;
+    var request = require('request');
 
+    var options = {
+      url: 'https://www.strava.com/api/v3/activities',
+      headers: {
+        'Authorization': 'Bearer ' + doc.strava_access_token,
+      },
+      method: 'get'
+    };
 
+    function callback(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var computed_strava_data = Strava.computeSummary(body);
+        users.findAndModify({'_id':user_id}, {$set:{'strava_activities':computed_strava_data}});
+        res.json(computed_strava_data);
+      } else {
+        res.send([]);
+      }
+    }
+
+    request(options, callback);
+
+  });
 
 });
 
