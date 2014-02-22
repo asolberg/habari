@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +18,37 @@
 	<!-- Custom styles for Habari -->
 	<link href="public/stylesheets/habari.css" rel="stylesheet">
 
+    <style>
+
+.ts-spashScreen {
+padding-top: 20px;
+padding-bottom: 30px;
+}
+.ts-transparent {
+    /* background-color: rgba(256, 256, 256, .75); */
+    background-color: rgba(0,0,0,0.6);
+    filter: alpha(opacity=70);
+}
+.ts-demoSpashNotificationContainer {
+    max-width: 500px;
+    padding: 70px 90px 70px 90px;
+    margin: 0 auto;
+    border: 0px;
+}
+
+.ts-demo_form input {
+    margin-bottom: 5px;
+}
+.tagline {
+    font: normal 18px/1.4 "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+}
+.login-cta {
+    margin-top: 20px;
+}
+
+    </style>
+</head>
 
 	<body class="splashBackground">
 
@@ -23,7 +56,39 @@
     <div class="">
     
     
-    <h1>Hello world</h1>
+    <div class="ts-spashScreen">
+        <div class="panel panel-default ts-demoSpashNotificationContainer ts-transparent">
+            <div class="center-block ts-demo_form">
+              <h3 class="text-center">Habari</h3>
+              <p class="tagline">Track your fitness activities in one place</p>
+              <form role="form" method="get" action="demo.php">
+                    <input type="text" class="form-control" id="betaCode" name="email" placeholder="Email">  
+                    <!-- 
+                    <input type="password" class="form-control" id="betaCode" name="password" placeholder="Password">  
+                    <input type="text" class="form-control" id="betaCode" name="username" placeholder="Username">  
+                    -->
+                    <button type="submit" class="btn btn-primary btn-block ts-demo_btn">Get Started</button>   
+             </form>
+            </div>
+
+            <div class="text-center login-cta">Already have an account?  <a href="">Sign In</a></div>
+
+            <!--
+            <hr> 
+            <div class="center-block ts-demo_form">
+              <form role="form" method="get" action="demo.php">
+                    <input type="text" class="form-control " id="betaCode" name="email" placeholder="Email">  
+                    <input type="password" class="form-control " id="betaCode" name="password" placeholder="Password">  
+                    <button type="submit" class="btn btn-primary btn-block ts-demo_btn">Login</button>   
+             </form>
+            </div>
+            -->
+
+
+
+        </div>
+    </div>
+
     
     </div>
 
