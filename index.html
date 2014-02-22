@@ -31,7 +31,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Dashboard</a></li>
+            <li class="active"><a href="http://getbootstrap.com/examples/dashboard/#">Dashboard</a></li>
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Social</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -46,10 +46,11 @@
       <div class="row">
         <div class="col-sm-3 col-md-2">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="">Overview</a></li>
-            <li class="active"><a href="">Nike+</a></li>
-            <li><a href="">Strava</a></li>
-            <li><a href="">MapMyFitness</a></li>
+            <li><a class="text-center" href="">Overview</a></li>
+            <li class="active"><a class="text-center" class="text-center"href="">Nike+</a></li>
+            <li><a class="text-center" href="">Strava</a></li>
+            <li><a class="text-center" href="">MapMyFitness</a></li>
+            <li><a class="text-center" data-toggle="modal" data-target="#myModal">Connect A Service</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-md-10 main">
@@ -110,6 +111,64 @@
       </div>
     </div>
 
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Connect a service</h4>
+      </div>
+      <div class="modal-body">
+      <div class="panel center-block">
+		<div class="row">
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    Strava image
+				  </div>
+				  <div class="panel-footer text-center">Stava</div>
+				</div>  
+			</div>
+		  <div class="col-md-6">
+				<div class="panel panel-default center-block">
+				  <div class="panel-body">
+				    FitBit image
+				  </div>
+				  <div class="panel-footer text-center">FitBit</div>
+				</div>  
+			</div>
+		</div>      
+				
+		<div class="row">
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    MapMyFitness image
+				  </div>
+				  <div class="panel-footer text-center">MapMyFitness</div>
+				</div>  
+		  </div>
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    LoseIt image
+				  </div>
+				  <div class="panel-footer text-center">LoseIt</div>
+				</div>  
+		  </div>
+		</div>  
+</div>
+		
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <!-- Bootstrap core JavaScript
