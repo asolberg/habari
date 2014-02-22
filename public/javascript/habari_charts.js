@@ -69,52 +69,6 @@ var NikePlus = {
 };
 
 
-var Strava = {
-    /**
-     * construct a data series from response of /api/v3/athlete/activities
-     *
-     * jsonRespStr - response string of the activities list /api/v3/athlete/activities
-     * activityType - optional.  ie. ride, run, swim, etc.
-     */
-    createDistanceChartData: function(jsonRespStr, activityType) {
-        var obj = JSON.parse(jsonRespStr);
-        var result = [];
-        for (var i = 0; i < obj.length; i++) {
-            // filter by activity type
-            if (typeof activityType == 'undefined' 
-                || (typeof activityType == 'string' 
-                && activityType.toUpperCase() == obj[i].type.toUpperCase())) {
-                result.push({
-                    x: new Date(obj[i].start_date),
-                    y: obj[i].distance,
-                    calories: obj[i].calories,
-                });
-            }
-        }
-        return result;
-    },
-
-    /**
-     * jsonRespStr - response string of the activities list /api/v3/athlete/activities
-     */
-    createCaloriesChartData: function(jsonRespStr, activityType) {
-        var obj = JSON.parse(jsonRespStr);
-        var result = [];
-        for (var i = 0; i < obj.length; i++) {
-            // filter by activity type
-            if (typeof activityType == 'undefined' 
-                || (typeof activityType == 'string' 
-                && activityType.toUpperCase() == obj[i].type.toUpperCase())) {
-                result.push({
-                    x: new Date(obj[i].start_date),
-                    y: obj[i].calories,
-                    distance: obj[i].distance,
-                });
-            }
-        }
-        return result;
-    },
-};
 
 
 $(function () {

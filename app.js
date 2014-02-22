@@ -141,6 +141,64 @@ app.get('/stravaCallback', function(req,res){
 });
 
 
+/** helper function **/
+var Strava = {
+    /**
+     *
+     * jsonRespStr - the Strava activities response string
+     *
+     * Returns {
+     *  "total_calories": {total_calories},
+     *  "total_distances": {total_distances},
+     *  "max_speed": {max_speed},
+     *  "max_distance": {max_distance},
+     *  "calories_graph_data": [ cal1, cal2, .. ],
+     *  "distances_graph_data": [dist1, dist2, ...],
+     *  
+     * }
+     *
+     */
+    computeSummary: function(jsonRespStr) {
+        var activities = JSON.parse(jsonRespStr);
+        var total_distances = 0;
+        var total_calories = 0;
+        var max_speed = 0;
+        var max_distance = 0;
+        var calories = [];
+        var distances = [];
+
+        for (var i = 0; i < activities.length; i++) {
+            var activity = activities[i];
+            total_distances += activity.distance;
+            total_calories += activity.calories;
+            max_speed = Math.max(max_speed, activity.max_speed);
+            max_distance = Math.max(max_distance, activity.distance);
+
+            calories.push({
+                x: new Date(activity.start_date),
+                y: activity.calories,
+                distance: activity.distance,
+            });
+
+            distances.push({
+                x: new Date(activity.start_date),
+                y: activity.distance,
+                calories: activity.calories,
+            });
+        }
+
+        return {
+            "total_calories": total_calories,
+            "total_distances": total_distances,
+            "max_speed": max_speed,
+            "max_distance": max_distance,
+            "calories_graph_data": calories,
+            "distances_graph_data": distances,
+       };
+    },
+};
+
+
 
 http.createServer(app).listen(app.get('port'), '0.0.0.0', function(){
   console.log('Express server listening on port ' + app.get('port'));
