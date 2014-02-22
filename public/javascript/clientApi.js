@@ -6,7 +6,7 @@
  * Created by Arian on 2/21/14.
  */
 
-API_ENDPOINT = 'http://127.0.0.1/getApiData'
+API_ENDPOINT = 'http://localhost:8080/getApiData'
 
 function ClientApiWrapper(client_id){
     this.client_id = client.id;

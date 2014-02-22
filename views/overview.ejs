@@ -16,10 +16,10 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
    <!-- Custom styles for Habari -->
-   <link href="public/stylesheets/habari.css" rel="stylesheet">
+   <link href="stylesheets/habari.css" rel="stylesheet">
     <script type="text/javascript">
       var activityData = {
-        strava_data : <%= strava_data%>
+        strava_data : <%- strava_data%>
       }
 
     </script>
@@ -97,7 +97,8 @@
 				  <div class="panel-body">
 				    Strava image
 				  </div>
-				  <div class="panel-footer text-center">Stava</div>
+				  <div class="panel-footer text-center"><a href="https://www.strava.com/oauth/authorize?client_id=919&response_type=code&redirect_uri=http://localhost:8080/stravaCallback&approval_prompt=force">Stava</a></div>
+        </div>
 				</div>  
 			</div>
 		  <div class="col-md-6">
@@ -142,7 +143,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!-- <script src="./template_files/docs.min.js"></script> -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="public/javascript/habari_charts.js"></script>
+    <script src="javascript/habari_charts.js"></script>
  
 
 </body></html>

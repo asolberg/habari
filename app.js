@@ -45,7 +45,8 @@ app.get('/', function(req, res){
   var user_id = ObjectId("53083629d90708370e000001");
   users.findById(user_id, function(err, doc){
     //html = new ejs({url: '/template.ejs'}).render(data)
-    res.render('overview', {test_var: 'HELLO WORLD'});
+    console.log(JSON.stringify(doc));
+    res.render('overview', {strava_data: JSON.stringify(doc.strava_activities)});
     //res.send(doc.strava_activities);
 
   });
@@ -123,7 +124,7 @@ app.get('/stravaCallback', function(req,res){
 
       function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
-          users.findAndModify({'_id':user_id}, {$set:{'strava_activities':body}});
+          users.findAndModify({'_id':user_id}, {$set:{'strava_activities':Strava.computeSummary(body)}});
           res.writeHead(302, {
             'Location': '/'
           });
