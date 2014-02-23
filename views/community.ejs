@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico"> -->
+
+    <title>Habari</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <!-- Custom styles for Habari -->
+   <link href="stylesheets/habari.css" rel="stylesheet">
+    <script type="text/javascript">
+    </script>
+
+    <style>
+div.socialfeed {
+    width: 100%;
+}
+
+.value-bar {
+background: #3ec6ff;
+display: block;
+padding: 3px 0;
+position: relative;
+height: 28px;
+min-width: 50px;
+}
+
+.value-bar-you {
+background: #FF0000;
+display: block;
+padding: 3px 0;
+position: relative;
+height: 28px;
+min-width: 50px;
+}
+
+
+
+.leaderboard em {
+position: absolute;
+top: 6px;
+left: 7px;
+width: 150px;
+color: #fff;
+font-size: .95em;
+font-style: normal;
+}
+
+.leaderboard {
+    padding-left: 17px;
+}
+
+.leaderboard li {
+    margin-bottom: 13px;
+}
+    </style>
+</head>
+  <body style="">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">Habari</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="http://getbootstrap.com/examples/dashboard/#">Dashboard</a></li>
+            <li class="active"><a href="/community">Community</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://getbootstrap.com/examples/dashboard/#">Settings <span class="glyphicon glyphicon-wrench"></span></a></li>
+            <li><a href="http://getbootstrap.com/examples/dashboard/#">Sign Out <span class="glyphicon glyphicon-remove-circle"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-12 main">
+		  <!-- main content goes here -->
+		  <div class = "row">
+
+		  	<div class="col-md-6">
+            <div class="row">
+		  	    <div class="col-md-12">
+                    <span style="font-weight: bold">Leader in distances biked last week</span>
+                    <ol class="leaderboard">
+                        <li>
+                            <span>Juno Kim</span>
+                            <span class="value-bar" style="width: 100%"><em>20 miles</em></span>
+                        </li>
+                        <li>
+                            <span>Julia P</span>
+                            <span class="value-bar" style="width: 67%"><em>15.2 miles</em></span>
+                        </li>
+                        <li>
+                            <span>Harold Franzen</span>
+                            <span class="value-bar" style="width: 33%"><em>7.3 miles</em></span>
+                        </li>
+                        <li>
+                            <span>YOU</span>
+                            <span class="value-bar-you" style="width: 14%"><em>3.3 miles</em></span>
+                        </li>
+                        <li>
+                            <span>Lauren Baker</span>
+                            <span class="value-bar" style="width: 12%"><em>2.1 miles</em></span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+		  	    <div class="col-md-12">
+                    <span style="font-weight: bold">Leader in calories burned last week</span>
+                    <ol class="leaderboard">
+                        <li>
+                            <span>Richard Carriero</span>
+                            <span class="value-bar" style="width: 100%"><em>1129</em></span>
+                        </li>
+                        <li>
+                            <span>Jason Planck</span>
+                            <span class="value-bar" style="width: 67%"><em>689</em></span>
+                        </li>
+                        <li>
+                            <span>Daniel Mason</span>
+                            <span class="value-bar" style="width: 33%"><em>533</em></span>
+                        </li>
+                        <li>
+                            <span>Stephen Bungo</span>
+                            <span class="value-bar" style="width: 20%"><em>410</em></span>
+                        </li>
+                        <li>
+                            <span>YOU</span>
+                            <span class="value-bar-you" style="width: 13%"><em>203</em></span>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+
+
+            <!--<div id="distro_container" style="height: 500px"></div>  -->
+		  	</div>
+
+		  	<div class="col-md-6">
+		  		<div class = "panel panel-default">
+		  			<div class="panel-body socialfeed">
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-map-marker">
+                  </i>
+                </div>
+                <div class="feedmessage"><a href="#">Stephen Curry</a> ran 30 miles!</div>
+              </div>
+             
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-star"></i> </div><div class="feedmessage">Awesome! You got a star for running your hundredth mile!</div>
+              </div>
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-comment"></i> </div><div class="feedmessage"><a href="#">Jason Calacanis</a> commented on your <a href="#">photo:</a> <br /><br /><i>That medal looks great on you!</i></div>
+              </div>
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-envelope"></i>
+                </div><div class="feedmessage">Message from <a href="#">Usain Bolt</a>: <i><br /><br />Run this weekend?</i></div>
+              </div>
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-flag"></i>
+                </div><div class="feedmessage">fa-flag</div>
+              </div>
+		  			</div>
+		  		</div> 
+		  	</div>
+		  	
+	
+		  </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Connect a service</h4>
+      </div>
+      <div class="modal-body">
+		<div class="row">
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">Strava image</div>
+				  <div class="panel-footer text-center">
+                    <a href="https://www.strava.com/oauth/authorize?client_id=919&response_type=code&redirect_uri=http://localhost:3000/stravaCallback&approval_prompt=force">Stava</a>
+                  </div>
+				</div>  
+		 </div>
+		  <div class="col-md-6">
+				<div class="panel panel-default center-block">
+				  <div class="panel-body">FitBit image</div>
+				  <div class="panel-footer text-center">FitBit</div>
+				</div>  
+		 </div>
+	    </div>      
+		<div class="row">
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    MapMyFitness image
+				  </div>
+				  <div class="panel-footer text-center">MapMyFitness</div>
+				</div>  
+		  </div>
+		  <div class="col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    LoseIt image
+				  </div>
+				  <div class="panel-footer text-center">LoseIt</div>
+				</div>  
+		  </div>
+		</div>  
+		
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- <script src="./template_files/docs.min.js"></script> -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <!-- <script src="javascript/habari_charts.js"></script> -->
+    <!-- <script src="javascript/clientApi.js"></script> -->
+
+    <script>
+/*
+var chart = new Highcharts.Chart({
+chart: {
+        renderTo:'distro_container',
+        defaultSeriesType:'column',
+        borderWidth:0,
+        backgroundColor:'#eee',
+        borderWidth:1,
+        borderColor:'#ccc',
+        plotBackgroundColor:'#fff',
+        plotBorderWidth:1,
+        plotBorderColor:'#ccc'
+    },
+    credits:{enabled:false},
+    exporting:{enabled:false},
+    title:{text:'Distribution for steps from last week'},
+    legend:{
+        //enabled:false
+    },
+    tooltip:{
+        borderWidth:1,
+        formatter:function() {
+            return '<b>Range:</b><br/> '+ this.x +'<br/>'+
+            '<b>Count:</b> '+ this.y;
+        }
+    },
+    plotOptions:{
+        column:{
+            shadow:false,
+            borderWidth:.5,
+            borderColor:'#666',
+            pointPadding:0,
+            groupPadding:0,
+            color: 'rgba(204,204,204,.85)'
+        },
+        spline:{
+            shadow:false,
+            marker:{
+                radius:1
+            }
+        },
+        areaspline:{
+            color:'rgb(69, 114, 167)',
+            fillColor:'rgba(69, 114, 167,.25)',
+            shadow:false,
+            marker:{
+                radius:1
+            }
+        }
+    },
+    xAxis:{
+        categories: ['> 48.00 =< 51.81','> 51.81 =< 54.63','> 54.63 =< 57.44','> 57.44 =< 60.25','> 60.25 =< 63.06','> 63.06 =< 65.88','> 65.88 =< 68.69','> 68.69 =< 71.50','> 71.50 =< 74.31','> 74.31 =< 77.13','> 77.13 =< 79.94','> 79.94 =< 82.75','> 82.75 =< 85.56','> 85.56 =< 88.38','> 88.38 =< 91.19','> 91.19 =< 94.00'],
+        labels:{
+            rotation:-90,
+            y:40,
+            style: {
+                fontSize:'8px',
+                fontWeight:'normal',
+                color:'#333'
+            },
+        },
+        lineWidth:0,
+        lineColor:'#999',
+        tickLength:70,
+        tickColor:'#ccc',
+    },
+    yAxis:{
+        title:{text:''},
+    },
+    series: [{
+        name:'Bins',
+        data: [300,200,100,600,1000,500,1300,900,1400,2100,2300,6600,4700,1400,500,200],
+    },{
+        name:'Curve',
+        type:'spline',
+        visible:false,
+        data: [3,2,1,6,10,5,13,9,14,21,23,66,47,14,5,2],
+        //color: 'rgba(204,204,255,.85)'
+    },{
+        name:'Filled Curve',
+        type:'areaspline',
+        visible:false,
+        data: [3,2,1,6,10,5,13,9,14,21,23,66,47,14,5,2],
+        //color: 'rgba(204,204,255,.85)'
+    }]
+});
+
+chart.series[0].data[10].update({ color: '#ECB631' }, true, false);
+*/
+    </script>
+ 
+</body></html>
