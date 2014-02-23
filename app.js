@@ -57,6 +57,20 @@ app.get('/', function(req, res){
   });
 });
 
+app.get('/signup', function(req, res){
+
+    res.render('signup');
+    //res.send(doc.strava_activities);
+
+});
+
+app.get('/login', function(req, res){
+
+  res.render('login');
+  //res.send(doc.strava_activities);
+
+});
+
 app.get('/users', function(req, res){
   users.find(req.query).on('success', function(doc) {
     res.send(doc);

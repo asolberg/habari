@@ -44,7 +44,7 @@ body {
 
 .splashBackground {
   color:white;
-  background-image: url('../images/background.jpg');
+  background-image: url('/images/background.jpg');
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position:center; 
@@ -153,4 +153,8 @@ div.socialfeed {
 
 .cleardiv{
     clear:both;
+}
+
+div.login{
+    display:none;
 }
