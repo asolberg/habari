@@ -334,12 +334,14 @@ $(function () {
             var a = parseFloat($("#s_total_distance").text());
             $("#s_total_distance").text((a + 23.7).toString()).fadeIn(500);
         });
-	/*
-		WE SHOULD NOT BE UPDATING STEPS WHEN ADDING BIKE DATA
-		$("#s_total_steps").fadeOut(500, function() {
-		    $("#s_total_steps").text('5521').fadeIn(500);
-		});
-	*/
+      $('#stravaElement').removeClass('hidden');
+
+      /*
+        WE SHOULD NOT BE UPDATING STEPS WHEN ADDING BIKE DATA
+        $("#s_total_steps").fadeOut(500, function() {
+            $("#s_total_steps").text('5521').fadeIn(500);
+        });
+      */
 
         // add new data series to chart
         var calories_chart = $('#calorie_container').highcharts();
@@ -408,8 +410,6 @@ $(function () {
                 }
             ]
         });
-
-      $('#stravaElement').show();
     }
 
 
