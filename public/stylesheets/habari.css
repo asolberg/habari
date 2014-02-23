@@ -55,10 +55,12 @@ body {
     padding-right: 10px;
     height: 50px;
     float:left;
+    font-size:20px; !important
 }
 
 .socialfeed div.bigrow{
     clear:both;
+
 }
 .socialfeed div.smallrow{
     clear:both;
@@ -98,15 +100,27 @@ body {
     margin-bottom: 10px;
     vertical-align: bottom;
     text-align: center;
+    font-size:14px;
 }
 
 .socialfeed p {
 
 }
 
+.socialfeed ul {
+margin-left:0px;
+    padding-left:0px;
+}
+
+.socialfeed li {
+    margin-left:0px;
+    padding-left:0px;
+}
+
 .socialfeed div.feedicon{
     float:left;
     width:20%;
+    font-size: 22px;
 }
 
 .socialfeed div.feedmessage{
@@ -114,13 +128,33 @@ body {
     vertical-align: bottom;
     width: 79%;
     text-align:left;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 div.socialfeed {
     width: 300px;
-	
-.blackBackground {
->>>>>>> de937448525f0db1d3affd4dc8dcec8ac41b5563
 }
+
+.initialhide, .initialhide2{
+    display:none;
+}
+
+.highlighted {
+    background: #ffff00;
+}
+
+.highlighted2 {
+    background: #ffff00;
+}
+
+.blackBackground {
+}
+
+.cleardiv{
+    clear:both;
+}
+
+                  .datepicker {z-index: 1151 !important;}
+                  .biker_pic {width: 50px; height: 50px; overflow: hidden;}
+                  .biker_pic img {width: 50px;}

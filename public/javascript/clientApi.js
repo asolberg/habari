@@ -40,7 +40,9 @@ function updateData(resp){
 }
 
 if (activityData.strava_data){
+  alert('hello');
   clientApiWrapper.startStravaPolling();
+  $('.initialhide').fadeIn();
 } else {
   alert('no global variable');
 }

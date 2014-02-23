@@ -13,9 +13,10 @@
     <title>Habari</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
    <!-- Custom styles for Habari -->
+   <link rel="stylesheet" href="stylesheets/datepicker.css">
    <link href="stylesheets/habari.css" rel="stylesheet">
     <script type="text/javascript">
       var activityData = {
@@ -54,13 +55,21 @@
       <div class="row">
         <div class="col-sm-3 col-md-2">
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a class="text-center" href=""><img class="" src="images/overview.png" width="50"><br>Overview</a></li>
-            <li><a class="text-center" class="text-center"href="index.html"><img class="" src="images/nikeplus-logo.png" width="50"><br>Nike+</a></li>
-            <li><a class="text-center" href=""><img class="" src="images/mapmyfitness-logo.png" width="50"><br>MapMyFitness</a></li>
-            <li><a class="text-center" data-toggle="modal" data-target="#myModal">Connect A Service</a></li>
+          
+          
+            <li class="active"><a class="text-center" href="" style="height:100px;display: table-cell;vertical-align: middle;width: 200px;"><img class="" src="images/overview.png" width="50"><br>Overview</a></li>
+            <li><a class="text-center" class="text-center" href="index.html" style="height:100px;display: table-cell;vertical-align: middle;width: 200px;"><img class="" src="images/nikeplus-logo.png" width="50"><br>Nike+</a></li>
+            <li><a class="text-center" href="" style="height:100px;display: table-cell;vertical-align: middle;width: 200px;"><img class="" src="images/mapmyfitness-logo.png" width="50"><br>MapMyFitness</a></li>
+            <li><a class="text-center" style="height:100px;display: table-cell;vertical-align: middle;width: 200px;" data-toggle="modal" data-target="#myModal"><img class="" src="images/connect.png" width="50"><br>Connect A Service</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-md-10 main">
+                  <div class = 'row'>
+                        <div id='event_confirmation' class="alert alert-success alert-dismissable hide">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <strong>Off to the races!</strong> Your friends have been invited to your event.
+                        </div>
+                  </div>
 		  <!-- main content goes here -->
 		  <div class = "row">
 		  	<div class="col-md-8">
@@ -69,12 +78,12 @@
 				    	<div class="panel panel-default" style="border-width:2px; border-color:red; background-color:red">
 						  <div class="panel-body">
 						  	<div style="position:relative; float:left; margin-top:5px;"><img class="" src="images/fire1.png" width="50" height="50"></div><span style="font-size:40px; color:white">&nbsp;<b id="s_total_calories">750</b></span>
-						    <br/><p class="text-center" style="color:white"><b>Cal. burned per day</b></p>
+						    <br/><p class="text-center" style="color:white">Cal. burned per day</p>
 						  </div>
 						</div>
 					</div>
 				    <div class="col-md-4">
-				    	<div class="panel panel-default" style="border-width:2px; border-color:blue; background-color:blue">
+				    	<div class="panel panel-default" style="border-width:2px; border-color:DarkBlue; background-color:DarkBlue">
 						  <div class="panel-body">
 						  	<div style="position:relative; float:left; margin-top:5px;"><img class="" src="images/road1.png" width="50" height="50"></div><span style="font-size:40px; color:white">&nbsp;<b id="s_total_distance">26.4</b></span>
 						    <br/><p class="text-center" style="color:white"><b>Total miles travelled</b></p>
@@ -97,9 +106,45 @@
 		  	<div class="col-md-4">
 		  		<div class = "panel panel-default">
 		  			<div class="panel-body socialfeed">
+              <div class="initialhide2 highlighted2">
               <div class="bigrow">
                 <div class="feedicon">
                   <img class="feed" src="/images/fred.png">
+                </div>
+                <div class="feedmessage">
+                  Hey you finally added Strava! Let's go biking!
+                </div>
+                <div class="cleardiv"></div>
+              </div>
+              </div>
+              <div class="initialhide highlighted">
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-flag"></i>
+                </div><div class="feedmessage">You just connected <a href="#">Strava!</a>
+                  What's next?<br /><br />
+                  <ul>
+                    <li><a href="#event_modal" class='create_bike_ride' data-toggle="modal">Organize a bike ride</a></li>
+                    <li>Use your <a href="">welcome coupon</a></li>
+                    <li><a href=""><a href="">Find new bike friends</a></li>
+                  </ul></div>
+
+              </div>
+
+                <div class="initialhide highlighted">
+              <div class="smallrow">
+                <div class="feedicon">
+                  <i class="fa fa-gift"></i>
+                </div><div class="feedmessage">You got a biking <a href="#">coupon</a>! </a>
+                  What's next?
+                 </div>
+
+              </div>
+                </div>
+                </div>
+              <div class="bigrow">
+                <div class="feedicon">
+                  <img class="feed" src="/images/runner.png">
                 </div>
                 <div class="feedmessage">
                   Wow you ran a long way last week! Great job!
@@ -126,11 +171,7 @@
                   <i class="fa fa-envelope"></i>
                 </div><div class="feedmessage">Message from <a href="#">Usain Bolt</a>: <i><br /><br />Run this weekend?</i></div>
               </div>
-              <div class="smallrow">
-                <div class="feedicon">
-                  <i class="fa fa-flag"></i>
-                </div><div class="feedmessage">fa-flag</div>
-              </div>
+
 		  			</div>
 		  		</div> 
 		  	</div>
@@ -142,8 +183,110 @@
       </div>
     </div>
 
+	<!-- Modal -->
+	<div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="event_modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="event_modalLabel">Create New Event</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+					  <div class="form-group">
+					    <div class="col-sm-12">
+					      <input type="text" class="form-control" id="inputEmail3" placeholder="Name">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-12">
+					       <select class="form-control" id='activity_type_select' value="Select an activity type">
+						  <option value="">Pick an activity</option>
+						  <option value="bike">Bicycling</option>
+						  <option value="run">Runnning</option>
+						  <option value="swim">Swimming</option>
+						  <option value="gym">Gym</option>
+						</select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-12">
+					      <input type="text" class="form-control" id="inputPassword3" placeholder="Details">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-12">
+					      <input type="text" class="form-control" id="inputPassword3" placeholder="Where">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-12">
+					      <input type="text" class="span2" value="02-23-2014" id="dp1" >
+					    </div>
+					  </div>
+					  <div class="form-group hide biker">
+					    <div class="col-sm-12">
+						<label>Invite Bikers!</label>
+					    </div>
+					    <div class="col-sm-12">
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+						  <div class='biker_pic'><img src='images/lance_armstrong.jpg'></div>
+						  Lance Armstrong
+						</label>
+					    </div>
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2">
+						  <div class='biker_pic'><img src='images/oscar_pereiro.jpg'></div>
+						  Óscar Pereiro
+						</label>
+					    </div>
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">
+						  <div class='biker_pic'><img src='images/alberto_contador.jpg'></div>
+						  Alberto Contador
+						</label>
+					    </div>
+</div>
+					    <div class="col-sm-12">
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+						  <div class='biker_pic'><img src='images/carlose_sastre.jpg'></div>
+						  Carlos Sastre
+						</label>
+					    </div>
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2">
+						  <div class='biker_pic'><img src='images/andy_schleck.jpg'></div>
+						  Andy Schleck
+						</label>
+					    </div>
+					    <div class="col-sm-4">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3">
+						  <div class='biker_pic'><img src='images/chris_froome.jpg'></div>
+						  Chris Froome
+						</label>
+					    </div>
+</div>
+					  </div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button id='create_button' type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <!-- Modal -->
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -201,6 +344,23 @@
     <!-- <script src="./template_files/docs.min.js"></script> -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="javascript/habari_charts.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="javascript/bootstrap-datepicker.js"></script>
+
     <!-- <script src="javascript/clientApi.js"></script> -->
- 
+                <script>
+                        $('#dp1').datepicker({
+                                format: 'mm-dd-yyyy'
+                        });
+                        var ats = $('#activity_type_select');
+                        ats.change(function() {
+                                var type = ats.val();
+                                if (type == 'bike') {
+                                        $('.biker').removeClass('hide');
+                                }
+                        });
+                        $('#create_button').click(function() {
+                                        $('#event_confirmation').removeClass('hide');
+                        });
+                </script>
 </body></html>

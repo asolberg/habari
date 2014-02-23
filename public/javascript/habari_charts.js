@@ -313,6 +313,22 @@ $(function () {
 
     if (params.hasOwnProperty("add_strava_success") && params['add_strava_success'] == 1) {
         // update the dashboard
+      setTimeout(function(){
+        $('.initialhide').show();
+        var iAniSpeed = 2000;
+        var sBgColor = 'white';
+        $('.initialhide').animate( { backgroundColor: sBgColor }, iAniSpeed);
+        //your code to be executed after 1 seconds
+      },1000)
+
+      setTimeout(function(){
+        $('.initialhide2').show();
+        var iAniSpeed = 2000;
+       var sBgColor = 'white';
+        $('.initialhide2').animate( { backgroundColor: sBgColor }, iAniSpeed);
+        //your code to be executed after 1 seconds
+      },10000)
+
         $("#s_total_calories").fadeOut(500, function() {
             $("#s_total_calories").text('802').fadeIn(500);
         });
