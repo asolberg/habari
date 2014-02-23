@@ -407,7 +407,7 @@ $(function () {
             ]
         });
 
-
+      $('#stravaElement').show();
     }
 
 
