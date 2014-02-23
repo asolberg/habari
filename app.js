@@ -57,6 +57,19 @@ app.get('/', function(req, res){
   });
 });
 
+app.get('/signup', function(req, res){
+
+    res.render('signup');
+    //res.send(doc.strava_activities);
+
+});
+
+app.get('/login', function(req, res){
+
+  res.render('login');
+  //res.send(doc.strava_activities);
+});
+
 app.get('/community', function(req, res) {
     res.render('community');
 });
@@ -77,7 +90,7 @@ app.get('/stravaPoll', function(req, res){
     var options = {
       url: 'https://www.strava.com/api/v3/activities',
       headers: {
-        'Authorization': 'Bearer ' + doc.strava_access_token,
+        'Authorization': 'Bearer ' + doc.strava_access_token
       },
       method: 'get'
     };
@@ -147,7 +160,7 @@ app.get('/stravaCallback', function(req,res){
       var options = {
         url: 'https://www.strava.com/api/v3/activities',
         headers: {
-            'Authorization': 'Bearer ' + access_token,
+            'Authorization': 'Bearer ' + access_token
         },
         method: 'get'
       };
@@ -208,13 +221,13 @@ var Strava = {
             calories.push({
                 x: new Date(activity.start_date),
                 y: activity.calories,
-                distance: activity.distance,
+                distance: activity.distance
             });
 
             distances.push({
                 x: new Date(activity.start_date),
                 y: activity.distance,
-                calories: activity.calories,
+                calories: activity.calories
             });
         }
 
@@ -224,13 +237,15 @@ var Strava = {
             "max_speed": max_speed,
             "max_distance": max_distance,
             "calories_graph_data": calories,
-            "distances_graph_data": distances,
+            "distances_graph_data": distances
        };
-    },
+    }
 };
 
 
 
 http.createServer(app).listen(app.get('port'), '0.0.0.0', function(){
+
   console.log('Express server listening on port ' + app.get('port'));
+
 });

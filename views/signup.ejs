@@ -16,7 +16,7 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for Habari -->
-	<link href="stylesheets/habari.css" rel="stylesheet">
+	<link href="/stylesheets/habari.css" rel="stylesheet">
 
     <style>
 
@@ -61,17 +61,22 @@ padding-bottom: 30px;
             <div class="center-block ts-demo_form">
               <h3 class="text-center">Habari</h3>
               <p class="tagline">Track your fitness activities in one place</p>
-              <form role="form" method="get" action="demo.php">
-                    <input type="text" class="form-control" id="betaCode" name="email" placeholder="Email">  
-                    <!-- 
-                    <input type="password" class="form-control" id="betaCode" name="password" placeholder="Password">  
-                    <input type="text" class="form-control" id="betaCode" name="username" placeholder="Username">  
+              <div class="signup"><form role="form" method="get" action="demo.php">
+                    <input type="text" class="form-control" id="betaCode" name="email" placeholder="Email">
+                    <!--
+                    <input type="password" class="form-control" id="betaCode" name="password" placeholder="Password">
+                    <input type="text" class="form-control" id="betaCode" name="username" placeholder="Username">
                     -->
-                    <button type="submit" class="btn btn-primary btn-block ts-demo_btn">Get Started</button>   
-             </form>
+                    <button type="submit" class="btn btn-primary btn-block ts-demo_btn">Get Started</button>
+             </form></div>
+              <div class="login">
+                  <input type="text" class="form-control" id="betaCode" name="username" placeholder="Username">
+                  <input type="password" class="form-control" id="betaCode" name="password" placeholder="Password">
+                  <a href="/asdasd"><button class="btn btn-primary btn-block ts-demo_btn">Login</button></a>
+                </div>
             </div>
 
-            <div class="text-center login-cta">Already have an account?  <a href="">Sign In</a></div>
+            <div class="text-center login-cta">Already have an account?  <a href="#">Sign In</a></div>
 
             <!--
             <hr> 
@@ -101,6 +106,6 @@ padding-bottom: 30px;
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<!-- <script src="./template_files/docs.min.js"></script> -->
 	<script src="http://code.highcharts.com/highcharts.js"></script>
-	<script src="javascript/habari_charts.js"></script>
+	<script src="/javascript/habari_charts.js"></script>
 	</body>
 </html>
