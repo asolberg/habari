@@ -152,7 +152,7 @@ app.get('/stravaCallback', function(req,res){
         if (!error && response.statusCode == 200) {
           users.findAndModify({'_id':user_id}, {$set:{'strava_activities':Strava.computeSummary(body)}});
           res.writeHead(302, {
-            'Location': '/'
+            'Location': '/?add_strava_success=1'
           });
           res.end();
         } else {
