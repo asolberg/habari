@@ -57,6 +57,10 @@ app.get('/', function(req, res){
   });
 });
 
+app.get('/community', function(req, res) {
+    res.render('community');
+});
+
 app.get('/users', function(req, res){
   users.find(req.query).on('success', function(doc) {
     res.send(doc);
