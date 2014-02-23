@@ -69,6 +69,8 @@ app.get('/login', function(req, res){
   res.render('login');
   //res.send(doc.strava_activities);
 
+app.get('/community', function(req, res) {
+    res.render('community');
 });
 
 app.get('/users', function(req, res){
