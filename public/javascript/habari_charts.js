@@ -297,5 +297,105 @@ $(function () {
 
         ]
     });
+
+
+    var parser = document.createElement('a');
+    parser.href = window.location.href;
+    var query_string = parser.search;
+    var params = {};
+    if (query_string != '') {
+        var parts = query_string.substr(1).split("&");
+        for (var i = 0; i < parts.length; i++) {
+            var key_val = parts[i].split("=");
+            params[key_val[0]] = key_val[1];
+        }
+    }
+
+    if (params.hasOwnProperty("add_strava_success") && params['add_strava_success'] == 1) {
+        // update the dashboard
+        $("#s_total_calories").fadeOut(500, function() {
+            $("#s_total_calories").text('802').fadeIn(500);
+        });
+        $("#s_total_distance").fadeOut(500, function() {
+            $("#s_total_distance").text('32.5').fadeIn(500);
+        });
+        $("#s_total_steps").fadeOut(500, function() {
+            $("#s_total_steps").text('5521').fadeIn(500);
+        });
+
+        // add new data series to chart
+        var calories_chart = $('#calorie_container').highcharts();
+        calories_chart.addSeries({
+            type: 'column',
+            name: 'Strava',
+            data: [
+                { 
+                    x: Date.UTC(2014, 2, 1),
+                    distance: 8,
+                    y: 144,
+                },
+                {
+                    x: Date.UTC(2014, 2, 2),
+                    distance: 10,
+                    y: 151,
+                },
+                {
+                    x: Date.UTC(2014, 2, 3),
+                    distance: 11,
+                    y: 187,
+                },
+                {
+                    x: Date.UTC(2014, 2, 4),
+                    distance: 9,
+                    y: 148,
+                },
+                {
+                    x: Date.UTC(2014, 2, 5),
+                    distance: 15,
+                    y: 177,
+                }
+            ]
+        });
+
+
+        var distance_chart = $('#distance_container').highcharts();
+        distance_chart.addSeries({
+            type: 'column',
+            name: 'Strava',
+            data: [
+                { 
+                    x: Date.UTC(2014, 2, 1),
+                    y: 13,
+                    calories: 122,
+                },
+                {
+                    x: Date.UTC(2014, 2, 2),
+                    y: 13.4,
+                    calories: 140,
+                },
+                {
+                    x: Date.UTC(2014, 2, 3),
+                    y: 12.3,
+                    calories: 166,
+                },
+                {
+                    x: Date.UTC(2014, 2, 4),
+                    y: 11.1,
+                    calories: 134,
+                },
+                {
+                    x: Date.UTC(2014, 2, 5),
+                    y: 16.4,
+                    calories: 160,
+                }
+            ]
+        });
+
+
+    }
+
+
+
+
 });
 
