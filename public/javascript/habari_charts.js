@@ -123,28 +123,28 @@ $(function () {
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
-                    y: 8,
-                    calories: 122,
+                    y: 1.4,
+                    calories: 148,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 10,
-                    calories: 140,
+                    y: 2.7,
+                    calories: 286,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    y: 11,
-                    calories: 166,
+                    y: 0,
+                    calories: 0,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    y: 9,
-                    calories: 134,
+                    y: 0.7,
+                    calories: 74,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    y: 15,
-                    calories: 160,
+                    y: 1.5,
+                    calories: 159,
                 }
             ]
         },
@@ -154,28 +154,28 @@ $(function () {
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
-                    y: 4,
-                    calories: 122,
+                    y: 1.3,
+                    calories: 137,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 5.5,
-                    calories: 140,
+                    y: 0,
+                    calories: 0,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    y: 4.8,
-                    calories: 166,
+                    y: 2.7,
+                    calories: 286,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    y: 3.4,
-                    calories: 134,
+                    y: 2.0,
+                    calories: 212,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    y: 8,
-                    calories: 160,
+                    y: 1.2,
+                    calories: 127,
                 }
             ]
         },
@@ -228,7 +228,6 @@ $(function () {
                 }
             }
         },
-
         series: [
         {
             type: 'column',
@@ -236,28 +235,28 @@ $(function () {
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
-                    distance: 8,
-                    y: 122,
+                    distance: 1.4,
+                    y: 148,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    distance: 10,
-                    y: 140,
+                    distance: 2.7,
+                    y: 286,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    distance: 11,
-                    y: 166,
+                    distance: 0,
+                    y: 0,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    distance: 9,
-                    y: 134,
+                    distance: 0.7,
+                    y: 74,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    distance: 15,
-                    y: 160,
+                    distance: 1.5,
+                    y: 159,
                 }
             ]
         },
@@ -267,33 +266,31 @@ $(function () {
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
-                    distance: 8,
-                    y: 102,
+                    distance: 1.3,
+                    y: 137,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    distance: 10,
-                    y: 110,
+                    y: 0,
+                    distance: 0,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    distance: 11,
-                    y: 99,
+                    distance: 2.7,
+                    y: 286,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    distance: 9,
-                    y: 122,
+                    distance: 2.0,
+                    y: 212,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    distance: 15,
-                    y: 80,
+                    distance: 1.2,
+                    y: 127,
                 }
             ]
         },
-
-
 
         ]
     });
@@ -330,14 +327,19 @@ $(function () {
       },10000)
 
         $("#s_total_calories").fadeOut(500, function() {
-            $("#s_total_calories").text('802').fadeIn(500);
+            var a = parseFloat($("#s_total_calories").text());
+            $("#s_total_calories").text((a + 619).toString()).fadeIn(500);
         });
         $("#s_total_distance").fadeOut(500, function() {
-            $("#s_total_distance").text('32.5').fadeIn(500);
+            var a = parseFloat($("#s_total_distance").text());
+            $("#s_total_distance").text((a + 23.7).toString()).fadeIn(500);
         });
-        $("#s_total_steps").fadeOut(500, function() {
-            $("#s_total_steps").text('5521').fadeIn(500);
-        });
+	/*
+		WE SHOULD NOT BE UPDATING STEPS WHEN ADDING BIKE DATA
+		$("#s_total_steps").fadeOut(500, function() {
+		    $("#s_total_steps").text('5521').fadeIn(500);
+		});
+	*/
 
         // add new data series to chart
         var calories_chart = $('#calorie_container').highcharts();
@@ -348,27 +350,27 @@ $(function () {
                 { 
                     x: Date.UTC(2014, 2, 1),
                     distance: 8,
-                    y: 144,
+                    y: 360,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    distance: 10,
-                    y: 151,
+                    distance: 1.48,
+                    y: 66,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    distance: 11,
-                    y: 187,
+                    distance: 3,
+                    y: 135,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    distance: 9,
-                    y: 148,
+                    distance: 7.3,
+                    y: 328,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    distance: 15,
-                    y: 177,
+                    distance: 3.9,
+                    y: 176,
                 }
             ]
         });
@@ -381,28 +383,28 @@ $(function () {
             data: [
                 { 
                     x: Date.UTC(2014, 2, 1),
-                    y: 13,
-                    calories: 122,
+                    y: 8,
+                    calories: 360,
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 13.4,
-                    calories: 140,
+                    y: 1.48,
+                    calories: 66,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    y: 12.3,
-                    calories: 166,
+                    y: 3,
+                    calories: 135,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
-                    y: 11.1,
-                    calories: 134,
+                    y: 7.3,
+                    calories: 328,
                 },
                 {
                     x: Date.UTC(2014, 2, 5),
-                    y: 16.4,
-                    calories: 160,
+                    y: 3.9,
+                    calories: 176,
                 }
             ]
         });
