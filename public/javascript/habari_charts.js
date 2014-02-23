@@ -128,13 +128,13 @@ $(function () {
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 2.7,
-                    calories: 286,
+                    y: 1.4,
+                    calories: 143,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    y: 0,
-                    calories: 0,
+                    y: 1.3,
+                    calories: 143,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
@@ -159,13 +159,13 @@ $(function () {
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 0,
-                    calories: 0,
+                    y: 1.4,
+                    calories: 143,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    y: 2.7,
-                    calories: 286,
+                    y: 1.3,
+                    calories: 143,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
@@ -240,13 +240,13 @@ $(function () {
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    distance: 2.7,
-                    y: 286,
+                    distance: 1.4,
+                    y: 148,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    distance: 0,
-                    y: 0,
+                    distance: 1.3,
+                    y: 138,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
@@ -271,13 +271,13 @@ $(function () {
                 },
                 {
                     x: Date.UTC(2014, 2, 2),
-                    y: 0,
-                    distance: 0,
+                    distance: 1.4,
+                    y: 148,
                 },
                 {
                     x: Date.UTC(2014, 2, 3),
-                    distance: 2.7,
-                    y: 286,
+                    distance: 1.3,
+                    y: 137,
                 },
                 {
                     x: Date.UTC(2014, 2, 4),
