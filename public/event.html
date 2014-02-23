@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Create an Event!</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="stylesheets/datepicker.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+		  .datepicker {z-index: 1151 !important;}
+		  .biker_pic {width: 50px; height: 50px; overflow: hidden;}
+		  .biker_pic img {width: 50px;}
+		</style>
+	</head>
+	<body>
+		<div id='event_confirmation' class="alert alert-success alert-dismissable hide">
+		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  <strong>Off to the races!</strong> Your friends have been invited to your event.
+		</div>
+
+		<!-- Button trigger modal -->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			Create event!
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Create New Event</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <div class="col-sm-12">
+						      <input type="text" class="form-control" id="inputEmail3" placeholder="Name">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-12">
+						       <select class="form-control" id='activity_type_select' value="Select an activity type">
+							  <option value="">Pick an activity</option>
+							  <option value="bike">Bicycling</option>
+							  <option value="run">Runnning</option>
+							  <option value="swim">Swimming</option>
+							  <option value="gym">Gym</option>
+							</select>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-12">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Details">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-12">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Where">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-12">
+						      <input type="text" class="span2" value="02-23-2014" id="dp1" >
+						    </div>
+						  </div>
+						  <div class="form-group hide biker">
+						    <div class="col-sm-12">
+							<label>Invite Bikers!</label>
+						    </div>
+						    <div class="col-sm-12">
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+							  <div class='biker_pic'><img src='images/lance_armstrong.jpg'></div>
+							  Lance Armstrong
+							</label>
+						    </div>
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox2" value="option2">
+							  <div class='biker_pic'><img src='images/oscar_pereiro.jpg'></div>
+							  Óscar Pereiro
+							</label>
+						    </div>
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox3" value="option3">
+							  <div class='biker_pic'><img src='images/alberto_contador.jpg'></div>
+							  Alberto Contador
+							</label>
+						    </div>
+</div>
+						    <div class="col-sm-12">
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox1" value="option1"> 
+							  <div class='biker_pic'><img src='images/carlose_sastre.jpg'></div>
+							  Carlos Sastre
+							</label>
+						    </div>
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox2" value="option2">
+							  <div class='biker_pic'><img src='images/andy_schleck.jpg'></div>
+							  Andy Schleck
+							</label>
+						    </div>
+						    <div class="col-sm-4">
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox3" value="option3">
+							  <div class='biker_pic'><img src='images/chris_froome.jpg'></div>
+							  Chris Froome
+							</label>
+						    </div>
+</div>
+						  </div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button id='create_button' type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="javascript/bootstrap-datepicker.js"></script>
+		<script>
+			$('#dp1').datepicker({
+				format: 'mm-dd-yyyy'
+			});
+			var ats = $('#activity_type_select');
+			ats.change(function() {
+				var type = ats.val();
+				if (type == 'bike') {
+					$('.biker').removeClass('hide');
+				}
+			});
+			$('#create_button').click(function() {
+					$('#event_confirmation').removeClass('hide');
+			});
+		</script>
+	</body>
+</html>
