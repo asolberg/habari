@@ -46,6 +46,11 @@ app.get('/', function(req, res){
   users.findById(user_id, function(err, doc){
     //html = new ejs({url: '/template.ejs'}).render(data)
     console.log(JSON.stringify(doc));
+    if (doc.hasOwnProperty(strava_activities)){
+      var strava_activities = doc.strava_activities;
+    } else {
+      var strava_activities = null;
+    }
     res.render('overview', {strava_data: JSON.stringify(doc.strava_activities)});
     //res.send(doc.strava_activities);
 

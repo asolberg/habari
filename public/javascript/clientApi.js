@@ -36,6 +36,7 @@ ClientApiWrapper.prototype.startStravaPolling = function (){
 
 function updateData(resp){
   activityData.strava_data = resp;
+  // update charts
 }
 
 if (activityData.strava_data){
